@@ -39,10 +39,8 @@
             </div>
             <?php } ?>
             <?php echo form_open_multipart($this->uri->uri_string(), ['class' => 'staff-form', 'autocomplete' => 'off']); ?>
-<<<<<<< HEAD
-            
-=======
->>>>>>> d75928440868c4104f8e45bd59b0c7cbaa36ef32
+
+
             <div class="col-md-<?php if (!isset($member)) {
     echo '8 col-md-offset-2';
 } else {
@@ -222,8 +220,8 @@
                                     <?php } ?>
                                 </div>
                                 <?php $rel_id = (isset($member) ? $member->staffid : false); ?>
-                                <?php echo render_custom_fields('staff', $rel_id); ?>
-
+      <?php $bid = get_current_branch();?>
+                                <?php echo render_custom_fields('staff', $rel_id,['branch_id=' . $bid ,]); ?>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <hr class="hr-10" />

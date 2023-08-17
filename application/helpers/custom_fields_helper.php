@@ -9,8 +9,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  * @param  array $items_cf_params          used only for custom fields for items operations
  * @return mixed
  */
-function render_custom_fields($belongs_to, $rel_id = false, $where = [], $items_cf_params = [])
-{
+function render_custom_fields($belongs_to, $rel_id = false,$where = [], $items_cf_params = []){
     // Is custom fields for items and in add/edit
     $items_add_edit_preview = isset($items_cf_params['add_edit_preview']) && $items_cf_params['add_edit_preview'] ? true : false;
 
@@ -30,8 +29,8 @@ function render_custom_fields($belongs_to, $rel_id = false, $where = [], $items_
     $CI->db->where('fieldto', $belongs_to);
 
     if (is_array($where) && count($where) > 0 || is_string($where) && $where != '') {
-        $CI->db->where($where);
-    }
+        $CI->db->where($where[0]);
+        }
 
     $CI->db->order_by('field_order', 'asc');
     $fields = $CI->db->get(db_prefix() . 'customfields')->result_array();

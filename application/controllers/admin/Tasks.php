@@ -306,13 +306,7 @@ class Tasks extends AdminController
             }
         }
 
-   //getting branch id
-   $data['branch_id']=$this->session->userdata('selectedbranch_id'); 
-   if ($id == '') {
-       if (!has_permission('tasks', '', 'create')) {
-           access_denied('tasks');
-       }
-       $id = $this->staff_model->add($data);
+  
 
 
         if ($this->input->get('start_date')) {

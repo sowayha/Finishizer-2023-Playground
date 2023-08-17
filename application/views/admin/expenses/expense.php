@@ -126,8 +126,9 @@
                             </div>
                         </div>
                         <?php $rel_id = (isset($expense) ? $expense->expenseid : false); ?>
-                        <?php echo render_custom_fields('expenses', $rel_id); ?>
-                        <div class="btn-bottom-toolbar text-right">
+                        <?php $bid = get_current_branch(); ?>
+                        <?php echo render_custom_fields('expenses', $rel_id,['branch_id=' . $bid ,]); ?>
+                                                <div class="btn-bottom-toolbar text-right">
                             <button type="submit" class="btn btn-primary"><?php echo _l('submit'); ?></button>
                         </div>
                     </div>
